@@ -1,0 +1,21 @@
+{
+  "name": "@elizaos/telegram-bot",
+  "version": "1.0.0",
+  "type": "module",
+  "private": true,
+  "main": "src/index.ts",
+  "dependencies": {
+    "dotenv": "workspace:^",
+    "https-proxy-agent": "^7.0.2",
+    "telegraf": "workspace:^"
+  },
+  "devDependencies": {
+    "@types/node": "workspace:^",
+    "tsx": "workspace:^",
+    "typescript": "workspace:^"
+  },
+  "scripts": {
+    "start": "tsx src/index.ts",
+    "dev": "tsx watch src/index.ts"
+  }
+} 

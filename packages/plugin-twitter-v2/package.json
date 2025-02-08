@@ -1,0 +1,56 @@
+{
+	"name": "@elizaos/plugin-twitter-v2",
+	"version": "0.1.9",
+	"description": "Twitter plugin for ElizaOS with Telegram bot integration",
+	"type": "module",
+	"main": "dist/index.js",
+	"module": "dist/index.js",
+	"types": "dist/index.d.ts",
+	"exports": {
+		"./package.json": "./package.json",
+		".": {
+			"import": {
+				"@elizaos/source": "./src/index.ts",
+				"types": "./dist/index.d.ts",
+				"default": "./dist/index.js"
+			}
+		}
+	},
+	"files": [
+		"dist"
+	],
+	"dependencies": {
+		"@elizaos/core": "workspace:^",
+		"agent-twitter-client": "0.0.18",
+		"axios": "^1.6.7",
+		"dotenv": "^16.3.1",
+		"https-proxy-agent": "^7.0.2",
+		"node-telegram-bot-api": "^0.64.0",
+		"tsup": "8.3.5"
+	},
+	"devDependencies": {
+		"@types/node": "^20.0.0",
+		"@types/node-telegram-bot-api": "^0.64.2",
+		"nodemon": "^3.0.2",
+		"ts-node": "^10.9.2",
+		"typescript": "^5.0.0",
+		"vitest": "^1.0.0",
+		"tsx": "^4.7.0"
+	},
+	"scripts": {
+		"build": "tsup --format esm --dts",
+		"dev": "tsup --format esm --dts --watch",
+		"test": "vitest run",
+		"test:watch": "vitest",
+		"lint": "eslint --fix --cache .",
+		"test:fetch": "tsx src/test-fetch.ts",
+		"test:generate": "tsx src/test-generation.ts",
+		"test:prompt": "tsx src/test-prompt.ts",
+		"test:schedule": "tsx src/test-schedule.ts",
+		"test:interactive": "tsx src/test-interactive.ts",
+		"telegram": "tsx src/test-telegram.ts",
+		"start:bot": "tsx telegram-bot/src/index.ts",
+		"dev:bot": "tsx watch telegram-bot/src/index.ts",
+		"start:minimal": "tsx src/telegram/minimal-bot.ts"
+	}
+}
